@@ -13,6 +13,7 @@ const userSchema = mongoose.Schema({
 
   , 
   address: { type: String },
+  picture: { type: String },
 //   wishlist: { type: Object, ref:'Product'},
 
 }, {timestamps:true});
