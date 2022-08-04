@@ -8,7 +8,7 @@ const cors =  require('cors')
 
 const app = express();
 
-
+app.use(express.json());
 mongoose.connect(process.env.MONGO_URL, {
   useNewUrlParser: true,
 });
@@ -27,5 +27,5 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cors())
 // -------- Routes ------//
 const dirPath = path.resolve(__dirname, './routes')
-fs.readdirSync(dirPath).map((r) => app.use(require('./routes/'+r)))
+fs.readdirSync(dirPath).map((r) => app.use('/api', require('./routes/'+r)))
 module.exports = app;

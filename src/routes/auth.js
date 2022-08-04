@@ -2,7 +2,7 @@ const express = require("express");
 // const login = require("../controllers/auth/login");
 
 
-const { login, register } = require("../controllers/auth");
+const { login, register, createOrUpdateUser } = require("../controllers/auth");
 const requireAuth = require("../middlewares/requireAuth");
 
 const router = express.Router();
@@ -10,5 +10,6 @@ const router = express.Router();
 //Auth and signup
 router.post("/login",  login);
 router.post("/register", register);
+router.post("/createorupdateuser", createOrUpdateUser);
 
 module.exports = router;
