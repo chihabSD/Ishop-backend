@@ -3,12 +3,12 @@ const express = require("express");
 
 
 const { login, register } = require("../controllers/auth");
+const requireAuth = require("../middlewares/requireAuth");
 
 const router = express.Router();
 
-
 //Auth and signup
-router.get("/login", login);
-// router.post("/register", register);
+router.post("/login",  login);
+router.post("/register", register);
 
 module.exports = router;
