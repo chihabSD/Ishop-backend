@@ -1,10 +1,6 @@
-const { admin } = require("../../firebase");
 const User = require("../../models/user");
-var gravatar = require("gravatar");
-// const admin = require('../../firebase')
+
 const createOrUpdateUser = async (req, res, next) => {
-    console.log(req.user);
-    
   const { email, picture, name } = req.user;
   try {
     const user = await User.findOneAndUpdate(
@@ -25,9 +21,9 @@ const createOrUpdateUser = async (req, res, next) => {
       picture: picture
         ? picture
         : "https://cdn.pixabay.com/photo/2016/08/08/09/17/avatar-1577909_1280.png",
-    }).save()
+    }).save();
 
-    return res.status(200).send({ user: newUser });
+    return res.status(200).send({ user: newUser.ass });
   } catch (e) {
     console.log(e);
     next(e);
