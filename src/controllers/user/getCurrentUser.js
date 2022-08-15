@@ -3,8 +3,8 @@ const getCurrentProfile = async (req, res, next) => {
 
     try {
   
-        const { user } = req.user;
-        let userFound = await User.findOne({email:user.email});
+        const { email } = req.user;
+        let userFound = await User.findOne({email});
          return res.status(200).send({ user: userFound });
         
     } catch (e) {
